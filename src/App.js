@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  
-  
-  initMap = () => {
-        const map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-  
-  
 
-  render() {
-    return (
-      <main>
-      <div id="map"></div>
-    </main>
-    )
-  }
+  componentDidMount() {
+   this.renderMap()
+ }
+  
+renderMap = () => {
+  loadScript("https://maps.googleapis.com/maps/api/js?AIzaSyBmkGEvVaQO-LY3KQlRBwOKDcrSAszFWNk&callback=initMap")
+   window.initMap = this.initMap
 }
+  
+      function initMap() {
+           var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 8,
+             center: {lat: -34.397, lng: 150.644}
+           });
+  
+
+      render() {
+       return (
+         <main>
+           <div id="map"></div>
+         </main>
+       )
+     }
+   }
 
 
-/*
-   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-   async defer></script>
-   
-   */
 
-function loadingScript(url) {
-  let index = window.document.getElementByTagName("script")[0]
-  let script = window.document.createElement("script")
+function loadScript(url) {
+  var index = document.window.getElementByTagName("script")[0]
+  var script = document.window.createElement("script")
   script.src = url
   script.async =  true
   script.defer =  true
-  index.parentNode.insertBefore(script,index)
+  index.parentNode.insertBefore(script, index)
   
 }
 
