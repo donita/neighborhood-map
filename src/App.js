@@ -1,7 +1,5 @@
 /*
-
 https://maps.googleapis.com/maps/api/js?key=AIzaSyBmkGEvVaQO-LY3KQlRBwOKDcrSAszFWNk&callback=initMap
-
 */
 
 import React, { Component } from 'react'
