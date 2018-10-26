@@ -78,8 +78,8 @@ let geocoder = new window.google.maps.Geocoder;
 }
 
 function loadScript(url) {
-  var index  = window.document.getElementsByTagName("script")[0]
-  var script = window.document.createElement("script")
+  let index  = window.document.getElementsByTagName("script")[0]
+  let script = window.document.createElement("script")
   script.src = url
   script.async = true
   script.defer = true
