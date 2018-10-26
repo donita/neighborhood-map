@@ -25,11 +25,21 @@ class App extends Component {
 
 
 /*
-</script>
    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
    async defer></script>
    
    */
+
+function loadingScript(url) {
+  let index = window.document.getElementByTagName("script")[0]
+  let script = window.document.createElement("script")
+  script.src = url
+  script.async =  true
+  script.defer =  true
+  index.parentNode.insertBefore(script,index)
+  
+}
+
 
 
 
