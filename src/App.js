@@ -14,6 +14,7 @@ import axios from 'axios'
 class App extends Component {
 
   componentDidMount() {
+    this.getVenues()
     this.renderMap()
   }
 
@@ -23,13 +24,21 @@ class App extends Component {
   }
 
 getVenues = () => {
-  const endPoint = "https://api.foursquare.com/v2/venues/explore"
+  const endPoint = "https://api.foursquare.com/v2/venues/explore?"
   const parameters = {
-    client_id: "",
-    client_secret: "",
+    client_id: "OOFGEXEFBTWLWNQRGT3BMS1DWEUBC1NGKXU2FWVMAN2P5OZN",
+    client_secret: "MX34M2MHYUGWNIEQLQMM4XDWQYDHJW035YI330CBSJGN41ES",
     query: "food",
-    near:"Sydney"
+    near:"Sydney",
+    v: "20182507"
   }
+axios.get(endPoint + new URLSearchParams(parameters))
+.then(response => {
+  console.log(response)
+})
+.catch(error => {
+  console.log("ERROR!! " + error)
+})
 }
 
 
