@@ -51,8 +51,8 @@ axios.get(endPoint + new URLSearchParams(parameters))
 
   initMap = () => {
     // Create A Map
-var map = new window.google.maps.Map(document.getElementById('map'), {zoom: 8});
-var geocoder = new window.google.maps.Geocoder; 
+let map = new window.google.maps.Map(document.getElementById('map'), {zoom: 8});
+let geocoder = new window.google.maps.Geocoder; 
         geocoder.geocode({'address': 'Inglewood'}, function(results, status) {
           if (status === 'OK') {
             map.setCenter(results[0].geometry.location);
