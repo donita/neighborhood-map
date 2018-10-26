@@ -53,11 +53,11 @@ axios.get(endPoint + new URLSearchParams(parameters))
 
     // Create A Map
 var map = new window.google.maps.Map(document.getElementById('map'), {zoom: 8});
-var geocoder = new google.maps.Geocoder;
-        geocoder.geocode({'address': 'Toledo'}, function(results, status) {
+var geocoder = new window.google.maps.Geocoder; 
+        geocoder.geocode({'address': 'Inglewood'}, function(results, status) {
           if (status === 'OK') {
             map.setCenter(results[0].geometry.location);
-            new google.maps.Marker({
+            new window.google.maps.Marker({
               map: map,
               position: results[0].geometry.location
             });
