@@ -34,7 +34,7 @@ getVenues = () => {
     client_id: "OOFGEXEFBTWLWNQRGT3BMS1DWEUBC1NGKXU2FWVMAN2P5OZN",
     client_secret: "MX34M2MHYUGWNIEQLQMM4XDWQYDHJW035YI330CBSJGN41ES",
     query: "food",
-    near:"Sydney",
+    near:"Inglewood",
     v: "20182507"
   }
 axios.get(endPoint + new URLSearchParams(parameters))
@@ -50,7 +50,6 @@ axios.get(endPoint + new URLSearchParams(parameters))
 
 
   initMap = () => {
-
     // Create A Map
 var map = new window.google.maps.Map(document.getElementById('map'), {zoom: 8});
 var geocoder = new window.google.maps.Geocoder; 
