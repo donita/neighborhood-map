@@ -17,10 +17,21 @@ class App extends Component {
   render() {
     return (
       <main>
-    <div id="map"></div>
+      <div id="map"></div>
     </main>
     )
   }
 }
+
+
+/*
+</script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+   async defer></script>
+   
+   */
+
+
+
 
 export default App;
