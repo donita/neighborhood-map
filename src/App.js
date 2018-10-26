@@ -2,8 +2,16 @@
 https://maps.googleapis.com/maps/api/js?key=AIzaSyBmkGEvVaQO-LY3KQlRBwOKDcrSAszFWNk&callback=initMap
 */
 
+/*
+ID: OOFGEXEFBTWLWNQRGT3BMS1DWEUBC1NGKXU2FWVMAN2P5OZN
+Secret: MX34M2MHYUGWNIEQLQMM4XDWQYDHJW035YI330CBSJGN41ES
+*/
+
+
+
 import React, { Component } from 'react'
 import './App.css'
+import axios from 'axios'
 
 class App extends Component {
 
@@ -26,9 +34,6 @@ class App extends Component {
       zoom: 8
     })
 
-  
-
-    
 
   }
 
