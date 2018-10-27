@@ -32,6 +32,27 @@ class App extends Component {
                     'streetAddress': "Plot No. 11/12, Vivek Vihar"
                 },
                 {
+                    'name': "Milk & Honey",
+                    'type': "Restaurant",
+                    'latitude': 33.748997,
+                    'longitude': -84.387985,
+                    'streetAddress': "Plot No. 11/12, Vivek Vihar"
+                },
+                {
+                    'name': "Mary Mac's",
+                    'type': "Restaurant",
+                    'latitude': 33.772860,
+                    'longitude': -84.379880,
+                    'streetAddress': "Plot No. 11/12, Vivek Vihar"
+                },
+                {
+                    'name': "A- Town Wings",
+                    'type': "Restaurant",
+                    'latitude': 33.772861,
+                    'longitude': -84.379883,
+                    'streetAddress': "Plot No. 11/12, Vivek Vihar"
+                },
+                {
                     'name': "Happy Wings",
                     'type': "Restaurant",
                     'latitude': 33.777950,
@@ -64,7 +85,7 @@ class App extends Component {
         mapview.style.height = window.innerHeight + "px";
         var map = new window.google.maps.Map(mapview, {
             center: {lat: 33.748997, lng: -84.387985},
-            zoom: 12,
+            zoom: 11,
             mapTypeControl: false
         });
 
@@ -149,12 +170,12 @@ class App extends Component {
 
                     // Examine the text in the response
                     response.json().then(function (data) {
-                      var results = data.response.venues[0];
-         var place = `<h2>${results.name}</h2>`;
-         var street = `<h3>${results.location.formattedAddress[0]}</h3>`;
-         var readMore =
-           '<a href="https://foursquare.com/v/' +
-           results.id +
+                      let results = data.response.venues[0];
+                      let place = `<h2>${results.name}</h2>`;
+                      let street = `<h3>${results.location.formattedAddress[0]}</h3>`;
+                      let readMore =
+                        '<a href="https://foursquare.com/v/' +
+                        results.id +
            '" target="_blank">More information you will find on <b>Foursquare</b></a>';
          self.state.infowindow.setContent(place + street + readMore);
        });
