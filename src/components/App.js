@@ -1,18 +1,7 @@
-/*
-https://maps.googleapis.com/maps/api/js?key=AIzaSyBmkGEvVaQO-LY3KQlRBwOKDcrSAszFWNk&callback=initMap
-*/
-
-/*
-ID: OOFGEXEFBTWLWNQRGT3BMS1DWEUBC1NGKXU2FWVMAN2P5OZN
-Secret: MX34M2MHYUGWNIEQLQMM4XDWQYDHJW035YI330CBSJGN41ES
-*/
 import React, {Component} from 'react';
 import LocationList from './LocationList';
 
 class App extends Component {
-    /**
-     * Constructor
-     */
     constructor(props) {
         super(props);
         
@@ -73,7 +62,7 @@ class App extends Component {
 
     }
 
-    componentDidMount() {
+    componentWillMount() {
         window.initMap = this.initMap;
         loadMapJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyBmkGEvVaQO-LY3KQlRBwOKDcrSAszFWNk&callback=initMap')
     }
@@ -82,17 +71,16 @@ class App extends Component {
      * Initialise the map once the google map script is loaded
      */
     initMap() {
-        var self = this;
-        var mapview = document.getElementById('map');
+        let self = this;
+        let mapview = document.getElementById('map');
         mapview.style.height = window.innerHeight + "px";
-        var map = new window.google.maps.Map(mapview, {
+        let InfoWindow = new window.google.maps.InfoWindow({});
+        let map = new window.google.maps.Map(mapview, {
             center: {lat: 33.748997, lng: -84.387985},
             zoom: 12,
             mapTypeControl: false
         });
-
-        var InfoWindow = new window.google.maps.InfoWindow({});
-
+        
         window.google.maps.event.addListener(InfoWindow, 'closeclick', function () {
             self.closeInfoWindow();
         });
@@ -102,20 +90,17 @@ class App extends Component {
             'infowindow': InfoWindow
         });
 
-        window.google.maps.event.addDomListener(window, "resize", function () {
-            var center = map.getCenter();
-            window.google.maps.event.trigger(map, "resize");
-            self.state.map.setCenter(center);
-        });
+        window.google.maps.event.addDomListener(window, "resize", 
+        );
 
         window.google.maps.event.addListener(map, 'click', function () {
             self.closeInfoWindow();
         });
 
-        var alllocations = [];
+        let alllocations = [];
         this.state.alllocations.forEach(function (location) {
-            var longname = location.name + ' - ' + location.type;
-            var marker = new window.google.maps.Marker({
+            let longname = location.name + ' - ' + location.type;
+            let marker = new window.google.maps.Marker({
                 position: new window.google.maps.LatLng(location.latitude, location.longitude),
                 animation: window.google.maps.Animation.DROP,
                 map: map
