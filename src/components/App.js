@@ -15,6 +15,12 @@ class App extends Component {
      */
     constructor(props) {
         super(props);
+        
+        // retain object instance when used in the function
+        this.initMap = this.initMap.bind(this);
+        this.openInfoWindow = this.openInfoWindow.bind(this);
+        this.closeInfoWindow = this.closeInfoWindow.bind(this);      
+        
         this.state = {
             'alllocations': [
                 {
@@ -65,10 +71,6 @@ class App extends Component {
             'prevmarker': ''
         };
 
-        // retain object instance when used in the function
-        this.initMap = this.initMap.bind(this);
-        this.openInfoWindow = this.openInfoWindow.bind(this);
-        this.closeInfoWindow = this.closeInfoWindow.bind(this);
     }
 
     componentDidMount() {
@@ -85,7 +87,7 @@ class App extends Component {
         mapview.style.height = window.innerHeight + "px";
         var map = new window.google.maps.Map(mapview, {
             center: {lat: 33.748997, lng: -84.387985},
-            zoom: 11,
+            zoom: 12,
             mapTypeControl: false
         });
 
@@ -170,12 +172,12 @@ class App extends Component {
 
                     // Examine the text in the response
                     response.json().then(function (data) {
-                      let results = data.response.venues[0];
-                      let place = `<h2>${results.name}</h2>`;
-                      let street = `<h3>${results.location.formattedAddress[0]}</h3>`;
-                      let readMore =
-                        '<a href="https://foursquare.com/v/' +
-                        results.id +
+                      var results = data.response.venues[0];
+         var place = `<h2>${results.name}</h2>`;
+         var street = `<h3>${results.location.formattedAddress[0]}</h3>`;
+         var readMore =
+           '<a href="https://foursquare.com/v/' +
+           results.id +
            '" target="_blank">More information you will find on <b>Foursquare</b></a>';
          self.state.infowindow.setContent(place + street + readMore);
        });
@@ -213,19 +215,13 @@ class App extends Component {
     }
 }
 
-export default App;
-
-/**
- * Load the google maps Asynchronously
- * @param {url} url of the google maps script
- */
-function loadMapJS(src) {
-    var ref = window.document.getElementsByTagName("script")[0];
-    var script = window.document.createElement("script");
-    script.src = src;
-    script.async = true;
-    script.onerror = function () {
-        document.write("Google Maps can't be loaded");
-    };
-    ref.parentNode.insertBefore(script, ref);
+function loadMapJS(url) {
+let index  = window.document.getElementsByTagName("script")[0]
+let script = window.document.createElement("script")
+script.src = url
+script.async = true
+script.defer = true
+index.parentNode.insertBefore(script, index)
 }
+
+export default App;
