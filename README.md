@@ -1,5 +1,8 @@
 # Introduction
 
+<img src="http://i66.tinypic.com/2co1zcp.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
+
+
 Neighborhood Map is a simple web based application which is built using React framework.
 The aim of this project is to display point of interests whatever user likes to see.
 User can view all included landmarks and when selected additional information can be viewed from FOURSQUARE.
